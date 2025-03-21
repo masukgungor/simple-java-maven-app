@@ -27,7 +27,10 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                sh """
+                export PATH=/opt/maven/bin:$PATH
+                ./jenkins/scripts/deliver.sh
+                """
             }
         }
     }
